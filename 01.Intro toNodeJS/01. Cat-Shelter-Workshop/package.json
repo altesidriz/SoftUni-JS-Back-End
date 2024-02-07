@@ -1,0 +1,14 @@
+{
+  "name": "cat-shelter",
+  "version": "1.0.0",
+  "description": "softuni-exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "author": "Altes Idriz",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
