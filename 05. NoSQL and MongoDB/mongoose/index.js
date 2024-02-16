@@ -4,7 +4,7 @@ const Cat = require('./models/Cat');
 const Person = require('./models/Person');
 
 async function connectDb() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/catShelter');
+    await mongoose.connect('mongodb://127.0.0.1:27017/');
 
     console.log('Db Connected successfully');
 
@@ -18,12 +18,12 @@ async function connectDb() {
     // const cats = await Cat.findById('646f8c5265a096882c26c345');
 
     // Create method 1
-    // const newCat = new Cat({
-    //     name: 'Zu',
-    //     age: 10,
-    //     breed: 'Ulichna'
-    // });
-    // await newCat.save();
+    const newCat = new Cat({
+        name: 'Zuzu',
+        age: 10,
+        breed: 'Ulichna'
+    });
+    await newCat.save();
 
     // Create method 2
     // const newCat = await Cat.create({
