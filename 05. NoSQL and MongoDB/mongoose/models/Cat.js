@@ -9,7 +9,6 @@ const catSchema = new mongoose.Schema({
     },
     color: {
         type: String,
-        require: false,
         enum: {
             values: ['white', 'black', 'yellow'],
             message: '{VALUE} is wrong color',

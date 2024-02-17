@@ -12,53 +12,85 @@ async function connectDb() {
     // cats.forEach(cat => console.log(cat.info)); // virtual property
     // const result = await Cat.giveMeCats() // Static model method
 
-    // Read
-    // const cats = await Cat.find({ breed: 'Angora' });
-    // const cats = await Cat.findOne({breed: 'Angora'});
-    // const cats = await Cat.findById('646f8c5265a096882c26c345');
+    /*                        READ OPERATIONS
 
-    // Create method 1
+    ---> find All cats<---
+    const cats = await Cat.find();
+
+    ---> find All cats whom breed is Angroa<---
+    const cats = await Cat.find({ breed: 'Angora' });
+                    
+    ---> find at least one(random/first founded) cat whom breed is Angroa<---
+    const cats = await Cat.findOne({breed: 'Angora'});
+
+    ---> find at least one(random/first founded) cat<---
+    const cats = await Cat.findOne();
+    
+    --->find a cat by it's id<---
+    const cats = await Cat.findById('646f8c5265a096882c26c345');
+    
+    */
+
+    /*                          CREATE OPERATIONS
+            METHOD 1
+
     const newCat = new Cat({
-        name: 'Zuzu',
+        name: 'Beyaz',
         age: 10,
-        breed: 'Ulichna'
+        breed: 'Europe Street'
     });
     await newCat.save();
 
-    // Create method 2
-    // const newCat = await Cat.create({
-    //     age: 6,
-    //     name: 'Charli',
-    //     color: 'Red',
-    //     breed: 'Dog',
-    // });
+            METHOD 2
 
-    // Update method 1
-    // const charli = await Cat.findOne({name: 'Charli'});
-    // charli.age = 10;
-    // await charli.save();
+    const newCat = await Cat.create({
+        age: 6,
+        name: 'Charli',
+        color: 'Red',
+        breed: 'Dog',
+    });
 
-    // Update method 2 native mongoDb
-    // await Cat.updateOne({ name: 'Charli' }, { $set: { age: 9 } });
+    */
 
-    // Update method 3 the mongoose extension
-    // await Cat.findByIdAndUpdate('646fa6c4c383c3fd53c0194a', {$set: {breed: 'Chihuahua'}});
+    /*                      UPDATE OPERATIONS
 
-    // Delete method 1
-    // await Cat.deleteOne({name: 'Zuza'});
+                METHOD 1
+    const charli = await Cat.findOne({name: 'Charli'});
+    charli.age = 10;
+    await charli.save();
 
-    // Delete method 2
-    // await Cat.findByIdAndDelete('646f8c5265a096882c26c345');
+                METHOD 2 (NATIVE MONGODB)
+    await Cat.updateOne({ name: 'Charli' }, { $set: { age: 9 } });
+    
+                METHOD 3 (MONGOOSE EXT)
+    await Cat.findByIdAndUpdate('646fa6c4c383c3fd53c0194a', {$set: {breed: 'Chihuahua'}});
+    */
+    
+    /*                      DELETE OPERATIONS 
+                METHOD 1
+    await Cat.deleteOne({name: 'Zuza'}); --->>> deletes first found cat whom name is Zuza
 
-    // Creating collection by creating first record in non existant collection
-    // await Person.create({
-    //     name: 'Pesho',
-    //     age: 20,
-    // });
+    await Cat.deleteMany({name: 'Zuza'}); --->>> deletes all cats whom name is Zuza
+    
+                METHOD 2 (MONGOSE EXT)
+
+    await Cat.findByIdAndDelete('646f8c5265a096882c26c345');
+    
+    */
+
+
+    /* Creating collection by creating first record in non existant collection
+
+    await Person.create({
+            name: 'Pesho',
+            age: 20,
+        });
+
+    */
 
     // Find all non angora cats
-    // const cats = await Cat.find({ breed: { $ne: 'Angora' } });
-    // const cats = await Cat.find().where('breed').ne('Angora');
+    // const cats = await Cat.find({ breed: { $ne: 'Angora' } }); mongoDB query
+    // const cats = await Cat.find().where('breed').ne('Angora'); mongoose query
     // console.log(cats);
 }
 
